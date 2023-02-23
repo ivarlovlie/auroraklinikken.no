@@ -25,10 +25,10 @@
 		<Products model={data.products} />
 	</section>
 	<section>
-		<FAQ model={data.faqs} />
+		<Contact model={data.contact} />
 	</section>
 	<section>
-		<Contact model={data.contact} />
+		<FAQ model={data.faqs} />
 	</section>
 </main>
 
