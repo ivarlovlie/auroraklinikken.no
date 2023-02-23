@@ -3,6 +3,7 @@
 	import Hero from "./sections/hero.svelte";
 	import Description from "./sections/description.svelte";
 	import Products from "./sections/products.svelte";
+	import FAQ from "./sections/faq.svelte";
 	import LL from "$i18n/i18n-svelte";
 
 	import type { PageData } from "./$types";
@@ -22,6 +23,9 @@
 	<section>
 		<h2 class="mb-3">{$LL.ourServices()}</h2>
 		<Products model={data.products} />
+	</section>
+	<section>
+		<FAQ model={data.faqs} />
 	</section>
 	<section>
 		<Contact model={data.contact} />
