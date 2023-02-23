@@ -10,6 +10,9 @@ const nb = {
 	meta: {
 		description: "Auroraklinikken tilbyr ketaminbehandling mot depresjon i Oslo"
 	},
+	faq: {
+		title: "Ofte stilte spørsmål"
+	},
 	goToBookingPage: "Gå til bestilling",
 	ourServices: "Våre tjenester",
 	homeTitle: "Hjem",

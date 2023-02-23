@@ -38,6 +38,12 @@ type RootTranslation = {
 		 */
 		description: string
 	}
+	faq: {
+		/**
+		 * Q​u​e​s​t​i​o​n​s​ ​&​a​m​p​;​ ​A​n​s​w​e​r​s
+		 */
+		title: string
+	}
 	/**
 	 * G​o​ ​t​o​ ​b​o​o​k​i​n​g
 	 */
@@ -76,6 +82,12 @@ export type TranslationFunctions = {
 		 * Auroraklinikken provides cetamine treatment for depression in Oslo
 		 */
 		description: () => LocalizedString
+	}
+	faq: {
+		/**
+		 * Questions &amp; Answers
+		 */
+		title: () => LocalizedString
 	}
 	/**
 	 * Go to booking

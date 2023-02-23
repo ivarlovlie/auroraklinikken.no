@@ -10,6 +10,9 @@ const en = {
 	meta: {
 		description: "Auroraklinikken provides cetamine treatment for depression in Oslo"
 	},
+	faq: {
+		title: "Questions &amp; Answers"
+	},
 	goToBookingPage: "Go to booking",
 	ourServices: "Our services",
 	homeTitle: "Home",
