@@ -16,7 +16,7 @@ Run `pnpm i` and `pnpm dev` to start the dev server.
 
 ## Build
 
-Run `pnpm i` and `pnpm build` to build the production build.
+Run `pnpm i` and `pnpm build` to build a production build.
 
 ## Deploy
 
