@@ -2,7 +2,6 @@
 	import { page } from "$app/stores";
 	import { locale } from "$i18n/i18n-svelte";
 	import { replaceLocaleInUrl } from "$lib/utils";
-
 </script>
 
 {#if $locale == "en"}

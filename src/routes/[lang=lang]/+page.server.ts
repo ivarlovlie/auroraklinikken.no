@@ -15,13 +15,18 @@ import type faqType from "$lib/sanity/schemas/default/faq";
 
 export const load = (async ({ locals }) => {
 	const commonParams = {
-		lang: locals.locale
-	}
-	const contactSection: s.infer<typeof contactType> = await sanity.fetch(groq`*[_type == "contact" && __i18n_lang == $lang][0]`, { ...commonParams }) ?? {};
-	const heroSection: s.infer<typeof heroType> = await sanity.fetch(groq`*[_type == "hero" && __i18n_lang == $lang][0]`, { ...commonParams }) ?? {};
-	const descriptionSection: s.infer<typeof descriptionType> = await sanity.fetch(groq`*[_type == "description" && __i18n_lang == $lang][0]`, { ...commonParams }) ?? {};
-	const products: Array<s.infer<typeof productType>> = await sanity.fetch(groq`*[_type == "product" && __i18n_lang == $lang]`, { ...commonParams }) ?? [];
-	const faqs: Array<s.infer<typeof faqType>> = await sanity.fetch(groq`*[_type == "faq" && __i18n_lang == $lang]`, { ...commonParams }) ?? [];
+		lang: locals.locale,
+	};
+	const contactSection: s.infer<typeof contactType> =
+		(await sanity.fetch(groq`*[_type == "contact" && __i18n_lang == $lang][0]`, { ...commonParams })) ?? {};
+	const heroSection: s.infer<typeof heroType> =
+		(await sanity.fetch(groq`*[_type == "hero" && __i18n_lang == $lang][0]`, { ...commonParams })) ?? {};
+	const descriptionSection: s.infer<typeof descriptionType> =
+		(await sanity.fetch(groq`*[_type == "description" && __i18n_lang == $lang][0]`, { ...commonParams })) ?? {};
+	const products: Array<s.infer<typeof productType>> =
+		(await sanity.fetch(groq`*[_type == "product" && __i18n_lang == $lang]`, { ...commonParams })) ?? [];
+	const faqs: Array<s.infer<typeof faqType>> =
+		(await sanity.fetch(groq`*[_type == "faq" && __i18n_lang == $lang]`, { ...commonParams })) ?? [];
 
 	return {
 		contact: {
@@ -44,14 +49,14 @@ export const load = (async ({ locals }) => {
 				description: p.description,
 				duration: p.duration,
 				orderLink: p.orderLink,
-				title: p.title
-			}))
+				title: p.title,
+			})),
 		} as ProductsModel,
 		faqs: {
 			entries: faqs.map((e) => ({
 				question: e.title,
-				answer: e.answer
-			}))
-		} as FAQModel
+				answer: e.answer,
+			})),
+		} as FAQModel,
 	};
 }) satisfies PageServerLoad;

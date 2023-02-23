@@ -13,7 +13,7 @@
 		<link rel="alternate" hreflang={l} href={`${replaceLocaleInUrl($page.url, l, true)}`} />
 	{/each}
 	<link rel="alternate" hreflang="x-default" href={`${replaceLocaleInUrl($page.url, baseLocale, true)}`} />
-	<meta name="description" content={$page.data.metaDescription ?? $LL.meta.description()}>
+	<meta name="description" content={$page.data.metaDescription ?? $LL.meta.description()} />
 </svelte:head>
 
 <Header />

@@ -8,10 +8,10 @@ const nb = {
 		phoneTitle: "Telefon",
 	},
 	meta: {
-		description: "Auroraklinikken tilbyr ketaminbehandling mot depresjon i Oslo"
+		description: "Auroraklinikken tilbyr ketaminbehandling mot depresjon i Oslo",
 	},
 	faq: {
-		title: "Ofte stilte spørsmål"
+		title: "Ofte stilte spørsmål",
 	},
 	goToBookingPage: "Gå til bestilling",
 	ourServices: "Våre tjenester",

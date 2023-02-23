@@ -8,10 +8,10 @@ const en = {
 		phoneTitle: "Phone",
 	},
 	meta: {
-		description: "Auroraklinikken provides cetamine treatment for depression in Oslo"
+		description: "Auroraklinikken provides cetamine treatment for depression in Oslo",
 	},
 	faq: {
-		title: "Questions & Answers"
+		title: "Questions & Answers",
 	},
 	goToBookingPage: "Go to booking",
 	ourServices: "Our services",

@@ -3,11 +3,12 @@
 This repo contains the source for auroraklinikken.no
 
 It showcases:
+
 - SvelteKit
 - Sanity
-    - Typesafety with `sanity-typed-schema-builder`
-    - Translation on field and document level
-    - Single project setup
+  - Typesafety with `sanity-typed-schema-builder`
+  - Translation on field and document level
+  - Single project setup
 - i18n typesafety with `typesafe-i18n`
 
 ## Develop
