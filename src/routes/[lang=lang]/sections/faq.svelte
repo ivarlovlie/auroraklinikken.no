@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
 	import type { SanityBlockArray } from "$lib/sanity/types/block-array";
-    import LL from "$i18n/i18n-svelte";
 	export type FAQModel = {
 		entries: FAQ[];
 	};
@@ -19,21 +18,16 @@
 </script>
 
 {#if visible}
-	<div class="relative z-[1] py-8 lg:py-12">
-		<div class="mb-8 lg:mb-12">
-			<h2>{$LL.faq.title()}</h2>
-		</div>
-		<ol class="text-points grid grid-cols-12 gap-y-8 lg:gap-12">
-			{#each model.entries as entry}
-				<li class="text-points__item col-span-12 lg:col-span-6">
-					<div class="text-points__text">
-						<h4 class="text-xl mb-1">{entry.question}</h4>
-						<div class="text-sm text-gray-500">
-							<PortableText value={entry.answer} />
-						</div>
+	<ol class="text-points grid grid-cols-12 gap-y-8 lg:gap-12">
+		{#each model.entries as entry}
+			<li class="text-points__item col-span-12 lg:col-span-6">
+				<div class="text-points__text">
+					<h4 class="text-xl mb-1">{entry.question}</h4>
+					<div class="text-sm text-gray-500">
+						<PortableText value={entry.answer} />
 					</div>
-				</li>
-			{/each}
-		</ol>
-	</div>
+				</div>
+			</li>
+		{/each}
+	</ol>
 {/if}

@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
 	import type { SanityBlockArray } from "$lib/sanity/types/block-array";
-	import LL from "$i18n/i18n-svelte";
 	export type FAQModel = {
 		entries: FAQ[];
 	};
@@ -25,36 +24,31 @@
 </script>
 
 {#if visible}
-	<div class="relative z-[1] py-8 lg:py-12">
-		<div class="mb-8 lg:mb-12">
-			<h2>{$LL.faq.title()}</h2>
-		</div>
-		<ul class="accordion js-accordion" data-animation="on" data-multi-items="on">
-			{#each model.entries as entry}
-				<li class="accordion__item accordion__item--is-open js-accordion__item">
-					<button class="accordion__header py-3 lg:py-5 px-5 lg:px-8 js-tab-focus" type="button">
-						<h3 class="text-lg lg:text-2xl">{entry.question}</h3>
-						<svg
-							class="icon h-[20px] w-[20px] inline-block text-inherit fill-current leading-none shrink-0 accordion__icon-arrow no-js:is-hidden"
-							viewBox="0 0 20 20"
-							aria-hidden="true"
-						>
-							<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="10" y1="14" x2="3" y2="7" />
-								<line x1="17" y1="7" x2="10" y2="14" />
-							</g>
-						</svg>
-					</button>
+	<ul class="accordion js-accordion" data-animation="on" data-multi-items="on">
+		{#each model.entries as entry}
+			<li class="accordion__item accordion__item--is-open js-accordion__item">
+				<button class="accordion__header py-3 lg:py-5 px-5 lg:px-8 js-tab-focus" type="button">
+					<h3 class="text-lg lg:text-2xl">{entry.question}</h3>
+					<svg
+						class="icon h-[20px] w-[20px] inline-block text-inherit fill-current leading-none shrink-0 accordion__icon-arrow no-js:is-hidden"
+						viewBox="0 0 20 20"
+						aria-hidden="true"
+					>
+						<g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="10" y1="14" x2="3" y2="7" />
+							<line x1="17" y1="7" x2="10" y2="14" />
+						</g>
+					</svg>
+				</button>
 
-					<div class="accordion__panel pt-1.5 lg:pt-2 px-5 lg:px-8 pb-5 lg:pb-8 js-accordion__panel">
-						<div class="leading-normal">
-							<PortableText value={entry.answer} />
-						</div>
+				<div class="accordion__panel pt-1.5 lg:pt-2 px-5 lg:px-8 pb-5 lg:pb-8 js-accordion__panel">
+					<div class="leading-normal">
+						<PortableText value={entry.answer} />
 					</div>
-				</li>
-			{/each}
-		</ul>
-	</div>
+				</div>
+			</li>
+		{/each}
+	</ul>
 {/if}
 
 <style lang="postcss">

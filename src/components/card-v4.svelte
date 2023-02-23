@@ -6,8 +6,8 @@
 	export let description: string | undefined | InputValue;
 </script>
 
-<div class="card">
-	<div class="p-6">
+<div class="card {$$props.class ?? ''}">
+	<div class="p-6 flex justify-between flex-col h-full">
 		<span class="text-3xl from-semibold mt-0">{title}</span>
 		<p class="mt-3 mx-0 mb-4">
 			{#if typeof description === "string"}
@@ -22,7 +22,7 @@
 
 <style lang="postcss">
 	.card {
-		@apply flex flex-col bg-floor rounded-xl overflow-hidden h-max;
+		@apply flex flex-col bg-floor rounded-md overflow-hidden;
 		box-shadow: 0 0 0 1px hsla(230, 13%, 9%, 0.05), 0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
 			0 0.9px 1.5px hsla(230, 13%, 9%, 0.045), 0 3.5px 6px hsla(230, 13%, 9%, 0.09);
 	}

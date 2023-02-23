@@ -25,13 +25,18 @@
 		<h2 class="mb-3">{$LL.ourServices()}</h2>
 		<Products model={data.products} />
 	</section>
-	<section>
-		<Contact model={data.contact} />
+	<section class="flex gap-5 flex-col lg:flex-row">
+		<div>
+			<h2 class="mb-3">{$LL.contact.title()}</h2>
+			<Contact model={data.contact} />
+		</div>
+		<div class="w-full">
+			<h2 class="mb-3">{$LL.faq.title()}</h2>
+			<FAQV2 model={data.faqs} />
+		</div>
 	</section>
 	<section>
-		<FAQV2 model={data.faqs} />
-	</section>
-	<section>
+		<h2 class="mb-5">{$LL.faq.title()}</h2>
 		<FAQ model={data.faqs} />
 	</section>
 </main>
@@ -42,16 +47,20 @@
 		display: flex;
 		flex-direction: column;
 	}
+
 	main section {
-		margin-bottom: 2vh;
+		margin-bottom: 7vh;
 	}
 
 	#hero {
 		display: grid;
-		grid-template-columns: repeat(2, 50%);
-		justify-content: space-between;
+		grid-template-columns: repeat(2, minmax(50%, 1fr));
 	}
-
+	@media (max-width: 768px) {
+		#hero {
+			grid-template-columns: unset;
+		}
+	}
 	#hero .hero {
 		padding: 3.2vw;
 	}

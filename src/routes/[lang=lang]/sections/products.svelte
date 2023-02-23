@@ -28,14 +28,16 @@
 </script>
 
 {#if visible}
-	<div class="wrapper">
+	<div class="grid gap-5">
 		{#each model.products as product}
-			<CardV4 description={product.description} title={product.title}>
-				<div class="flex flex-wrap justify-between align-bottom">
-					<div class="flex flex-wrap items-center">
-						<span class="text-4xl font-bold">{product.cost}</span>
-						<span class="mx-2">&bull;</span>
-						<span>{product.duration}</span>
+			<CardV4 description={product.description} title={product.title} class="min-w-[300px] align-bottom">
+				<div class="flex flex-wrap justify-end align-bottom">
+					<div class="flex flex-wrap items-center mr-4">
+						<span class="text-3xl ">{product.cost}</span>
+						<span class="mx-2">
+							<span class="mx-2">&bull;</span>
+							{product.duration}</span
+						>
 					</div>
 					<a href={product.orderLink} class="btn btn--primary">{$LL.goToBookingPage()}</a>
 				</div>
@@ -45,9 +47,12 @@
 {/if}
 
 <style lang="postcss">
-	.wrapper {
-		display: grid;
-		grid-template-columns: repeat(2, 50%);
-		gap: 1em
+	.grid {
+		grid-template-columns: repeat(2, minmax(50%, 1fr));
+	}
+	@media (max-width: 768px) {
+		.grid {
+			grid-template-columns: unset;
+		}
 	}
 </style>

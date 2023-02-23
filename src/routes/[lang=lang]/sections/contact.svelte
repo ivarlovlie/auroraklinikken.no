@@ -12,58 +12,47 @@
 
 	export let model: ContactModel;
 
-	let visible = true;
-
-	$: if (!model.addressLines) {
-		visible = false;
-	} else {
-		visible = true;
-	}
+	$: visible = model.addressLines;
 </script>
 
 {#if visible}
-	<section class="contact relative z-1">
-		<div class="mx-auto">
-			<div class="mb-8 lg:mb-12">
-				<h2>{$LL.contact.title()}</h2>
+	<dl class="details-list details-list--rows">
+		{#if (model.addressLines?.length ?? 0) > 0}
+			<div class="details-list__item py-2 lg:py-4">
+				<dt class="font-bold mb-1.5 lg:mb-2">{$LL.contact.addressTitle()}</dt>
+				<dd class="leading-snug">
+					{#each model.addressLines as line}
+						{line}<br />
+					{/each}
+				</dd>
 			</div>
-
-			<div class="grid grid-cols-12 gap-8 lg:gap-12">
-				<div class="col-span-12 lg:col-span-6">
-					<dl class="details-list details-list--rows">
-						{#if (model.addressLines?.length ?? 0) > 0}
-							<div class="details-list__item py-5 lg:py-8 lg:flex lg:justify-between">
-								<dt class="font-bold mb-1.5 lg:mb-2 lg:mb-0">{$LL.contact.addressTitle()}</dt>
-								<dd class="leading-snug lg:text-right">
-									{#each model.addressLines as line}
-										{line}<br />
-									{/each}
-								</dd>
-							</div>
-						{/if}
-						{#if model.email}
-							<div class="details-list__item py-5 lg:py-8 lg:flex lg:justify-between">
-								<dt class="font-bold mb-1.5 lg:mb-2 lg:mb-0">{$LL.contact.emailTitle()}</dt>
-								<dd>
-									<a href="mailto:webmaster@example.com">{model.email}</a>
-								</dd>
-							</div>
-						{/if}
-						{#if model.phone}
-							<div class="details-list__item py-5 lg:py-8 lg:flex lg:justify-between">
-								<dt class="font-bold mb-1.5 lg:mb-2 lg:mb-0">{$LL.contact.phoneTitle()}</dt>
-								<dd class="leading-snug lg:text-right">
-									<p><a href="tel:+44 7656 6455">{model.phone}</a></p>
-									{#if model.phoneHours}
-										<p class="text-contrast-medium">{model.phoneHours}</p>
-									{/if}
-								</dd>
-							</div>
-						{/if}
-					</dl>
-				</div>
-				<div class="rounded col-span-12 lg:col-span-6 lg:h-auto lg:pb-0" />
+		{/if}
+		{#if model.email}
+			<div class="details-list__item py-2 lg:py-4">
+				<dt class="font-bold mb-1.5 lg:mb-2">{$LL.contact.emailTitle()}</dt>
+				<dd>
+					<a href="mailto:{model.email}" class="underline text-primary">{model.email}</a>
+				</dd>
 			</div>
-		</div>
-	</section>
+		{/if}
+		{#if model.phone}
+			<div class="details-list__item py-2 lg:py-4">
+				<dt class="font-bold mb-1.5 lg:mb-2">{$LL.contact.phoneTitle()}</dt>
+				<dd class="leading-snug">
+					<p><a href="tel:{model.phone}" class="underline text-primary-light">{model.phone}</a></p>
+					{#if model.phoneHours}
+						<p class="text-contrast-medium">{model.phoneHours}</p>
+					{/if}
+				</dd>
+			</div>
+		{/if}
+	</dl>
 {/if}
+
+<style lang="postcss">
+	dl {
+		@apply bg-floor rounded-md overflow-hidden p-5;
+		box-shadow: 0 0 0 1px hsla(230, 13%, 9%, 0.05), 0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+			0 0.9px 1.5px hsla(230, 13%, 9%, 0.045), 0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+	}
+</style>

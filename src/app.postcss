@@ -11,11 +11,11 @@
 	:root,
 	[data-theme="default"] {
 		/* main */
-		--color-primary-darker: 250 84% 38%;
-		--color-primary-dark: 250 84% 46%;
-		--color-primary: 250 84% 54%;
-		--color-primary-light: 250 84% 60%;
-		--color-primary-lighter: 250 84% 67%;
+		--color-primary-darker: 357, 41%, 17%;
+		--color-primary-dark: 357, 41%, 23%;
+		--color-primary: 357, 41%, 29%;
+		--color-primary-light: 357, 41%, 35%;
+		--color-primary-lighter: 357, 41%, 41%;
 
 		--color-accent-darker: 342 89% 38%;
 		--color-accent-dark: 342 89% 43%;
@@ -218,6 +218,7 @@
 		align-items: center;
 		white-space: nowrap;
 		font-size: 1em;
+		font-weight: 600;
 		@apply px-3 lg:px-5 py-1.5 lg:py-2 rounded bg-floor-dark text-contrast-higher;
 		cursor: pointer;
 		text-decoration: none;
@@ -226,6 +227,9 @@
 		-moz-osx-font-smoothing: grayscale;
 		transition: all 0.2s ease;
 		will-change: transform;
+	}
+	.btn:hover {
+		background-color: #eacdcf !important;
 	}
 
 	.btn:focus-visible {
@@ -239,8 +243,8 @@
 
 	/* themes */
 	.btn--primary {
-		background: hsl(var(--color-primary));
-		color: hsl(var(--color-white));
+		color: #682c2f !important;
+		background-color: #f2dfe0 !important;
 		box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.15), 0px 1px 3px hsla(var(--color-primary-darker) / 0.25),
 			0px 2px 6px hsla(var(--color-primary-darker) / 0.1), 0px 6px 10px -2px hsla(var(--color-primary-darker) / 0.25);
 	}
