@@ -38,7 +38,7 @@ type RootTranslation = {
 	};
 	faq: {
 		/**
-		 * Q​u​e​s​t​i​o​n​s​ ​&​a​m​p​;​ ​A​n​s​w​e​r​s
+		 * Q​u​e​s​t​i​o​n​s​ ​&​ ​A​n​s​w​e​r​s
 		 */
 		title: string;
 	};
@@ -83,7 +83,7 @@ export type TranslationFunctions = {
 	};
 	faq: {
 		/**
-		 * Questions &amp; Answers
+		 * Questions & Answers
 		 */
 		title: () => LocalizedString;
 	};
