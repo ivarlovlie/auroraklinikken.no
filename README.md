@@ -20,4 +20,4 @@ Run `pnpm i` and `pnpm build` to build a production build.
 
 ## Deploy
 
-The site is deployed with vercel, every push to `master` is exposed in production, and every push to `develop` is exposed in preview environments.
+The site is deployed with vercel, every push to `master` is exposed in production, and every push to anything else is exposed in preview environments.
