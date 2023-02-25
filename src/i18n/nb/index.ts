@@ -14,6 +14,7 @@ const nb = {
 		title: "Ofte stilte spørsmål",
 	},
 	goToBookingPage: "Gå til bestilling",
+	aboutUs: "Om oss",
 	ourServices: "Våre tjenester",
 	homeTitle: "Hjem",
 } satisfies Translation;

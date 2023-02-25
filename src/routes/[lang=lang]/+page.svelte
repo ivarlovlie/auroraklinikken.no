@@ -5,6 +5,7 @@
 	import Products from "./sections/products.svelte";
 	import FAQ from "./sections/faq.svelte";
 	import FAQV2 from "./sections/faq-v2.svelte";
+	import About from "./sections/about.svelte";
 	import LL from "$i18n/i18n-svelte";
 
 	import type { PageData } from "./$types";
@@ -24,6 +25,10 @@
 	<section>
 		<h2 class="mb-3">{$LL.ourServices()}</h2>
 		<Products model={data.products} />
+	</section>
+	<section>
+		<h2 class="mb-3">{$LL.aboutUs()}</h2>
+		<About model={data.about} />
 	</section>
 	<section class="flex gap-5 flex-col lg:flex-row">
 		<div>

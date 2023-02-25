@@ -22,7 +22,14 @@ export default s.document({
       title: "Image",
       name: "image",
       type: s.image(),
-      optional: true
+      optional: true,
+      fields: [
+        {
+          name: "imageAlt",
+          title: "Alternative text",
+          type: "string"
+        }
+      ]
     },
   ],
 });

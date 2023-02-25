@@ -1,4 +1,4 @@
-import { sanity } from "$lib/sanity/client";
+import { imageUrl, sanity } from "$lib/sanity/client";
 import groq from "groq";
 import type { s } from "sanity-typed-schema-builder";
 import type { PageServerLoad } from "./$types";
@@ -7,11 +7,13 @@ import type { HeroModel } from "./sections/hero.svelte";
 import type { DescriptionModel } from "./sections/description.svelte";
 import type { ProductsModel } from "./sections/products.svelte";
 import type { FAQModel } from "./sections/faq.svelte";
+import type { AboutModel } from "./sections/about.svelte";
 import type contactType from "$lib/sanity/schemas/default/contact";
 import type heroType from "$lib/sanity/schemas/default/hero";
 import type descriptionType from "$lib/sanity/schemas/default/description";
 import type productType from "$lib/sanity/schemas/default/product";
 import type faqType from "$lib/sanity/schemas/default/faq";
+import type aboutType from "$lib/sanity/schemas/default/about";
 
 export const load = (async ({ locals }) => {
 	const commonParams = {
@@ -27,6 +29,8 @@ export const load = (async ({ locals }) => {
 		(await sanity.fetch(groq`*[_type == "product" && __i18n_lang == $lang]`, { ...commonParams })) ?? [];
 	const faqs: Array<s.infer<typeof faqType>> =
 		(await sanity.fetch(groq`*[_type == "faq" && __i18n_lang == $lang]`, { ...commonParams })) ?? [];
+	const about: s.infer<typeof aboutType> =
+		(await sanity.fetch(groq`*[_type == "about" && __i18n_lang == $lang][0]`, { ...commonParams })) ?? {};
 
 	return {
 		contact: {
@@ -58,5 +62,9 @@ export const load = (async ({ locals }) => {
 				answer: e.answer,
 			})),
 		} as FAQModel,
+		about: {
+			description: about.description,
+			imageUrl: imageUrl(about.image)?.url(),
+		} as AboutModel
 	};
 }) satisfies PageServerLoad;

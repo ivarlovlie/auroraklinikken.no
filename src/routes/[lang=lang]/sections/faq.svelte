@@ -22,10 +22,8 @@
 		{#each model.entries as entry}
 			<li class="text-points__item col-span-12 lg:col-span-6">
 				<div class="text-points__text">
-					<h4 class="text-xl mb-1">{entry.question}</h4>
-					<div class="text-sm text-gray-500">
-						<PortableText value={entry.answer} />
-					</div>
+					<h3 class="text-xl mb-1">{entry.question}</h3>
+					<PortableText value={entry.answer} />
 				</div>
 			</li>
 		{/each}

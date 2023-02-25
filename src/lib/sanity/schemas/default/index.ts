@@ -1,3 +1,4 @@
+import about from "./about";
 import contact from "./contact";
 import description from "./description";
 import faq from "./faq";
@@ -11,6 +12,7 @@ export default {
         product.schema(),
         description.schema(),
         faq.schema(),
-        hero.schema()
+        hero.schema(),
+        about.schema()
     ]
 }
