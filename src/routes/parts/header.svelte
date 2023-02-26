@@ -26,7 +26,7 @@
 </script>
 
 <header class="flex w-full">
-	<div class="flex justify-end flex-row select-none bg-white fixed right-0 z-30">
+	<div class="flex justify-end flex-row select-none bg-white fixed right-0 top-0 z-30">
 		<LocaleSwitcher />
 		<Navigator model={navigatorModel} />
 	</div>

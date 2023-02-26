@@ -10,7 +10,6 @@
 
 <script lang="ts">
 	import { browser } from "$app/environment";
-
 	import LL from "$i18n/i18n-svelte";
 	import { onDestroy } from "svelte";
 	export let model: NavigatorModel;
@@ -24,18 +23,15 @@
 			open = false;
 		}
 	}
-
-	if (browser) {
-		$: if (open) {
-			document.addEventListener("click", handleClick);
-		} else {
-			document.removeEventListener("click", handleClick);
-		}
-
-		onDestroy(() => {
-			document.removeEventListener("click", handleClick);
-		});
+	$: if (open) {
+		if (browser) document.addEventListener("click", handleClick);
+	} else {
+		if (browser) document.removeEventListener("click", handleClick);
 	}
+
+	onDestroy(() => {
+		if (browser) document.removeEventListener("click", handleClick);
+	});
 </script>
 
 {#if visible}
@@ -61,6 +57,10 @@
 		summary {
 			cursor: pointer;
 			width: fit-content;
+
+			&::-webkit-details-marker {
+				display: none;
+			}
 
 			&::marker {
 				content: "";
