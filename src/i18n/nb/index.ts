@@ -16,6 +16,7 @@ const nb = {
 	goToBookingPage: "Gå til bestilling",
 	aboutUs: "Om oss",
 	ourServices: "Våre tjenester",
+	menu: "Meny",
 	homeTitle: "Hjem",
 } satisfies Translation;
 

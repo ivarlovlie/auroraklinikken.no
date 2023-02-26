@@ -57,6 +57,10 @@ type RootTranslation = {
 	 */
 	aboutUs: string
 	/**
+	 * M​e​n​u
+	 */
+	menu: string
+	/**
 	 * H​o​m​e
 	 */
 	homeTitle: string
@@ -105,6 +109,10 @@ export type TranslationFunctions = {
 	 * About us
 	 */
 	aboutUs: () => LocalizedString
+	/**
+	 * Menu
+	 */
+	menu: () => LocalizedString
 	/**
 	 * Home
 	 */

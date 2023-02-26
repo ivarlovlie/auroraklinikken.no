@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import PocketBase from "pocketbase";
 
 declare global {

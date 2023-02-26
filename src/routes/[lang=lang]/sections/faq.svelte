@@ -18,14 +18,29 @@
 </script>
 
 {#if visible}
-	<ol class="text-points grid grid-cols-12 gap-y-8 lg:gap-12">
+	<ul class="accordion">
 		{#each model.entries as entry}
-			<li class="text-points__item col-span-12 lg:col-span-6">
-				<div class="text-points__text">
-					<h3 class="text-xl mb-1">{entry.question}</h3>
-					<PortableText value={entry.answer} />
-				</div>
+			<li class="accordion__item">
+				<details>
+					<summary class="text-lg lg:text-2xl cursor-pointer py-3 lg:py-5 px-5 lg:px-8">
+						{entry.question}
+					</summary>
+					<div class="pt-1.5 lg:pt-2 px-5 lg:px-8 pb-5 lg:pb-8">
+						<PortableText value={entry.answer} />
+					</div>
+				</details>
 			</li>
 		{/each}
-	</ol>
+	</ul>
 {/if}
+
+<style>
+.accordion__item {
+	border-style: solid;
+	border-color: #ccc;
+}
+
+.accordion__item:first-child {
+	border-top-width: 1px;
+}
+</style>

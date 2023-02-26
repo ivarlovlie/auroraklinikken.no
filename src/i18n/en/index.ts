@@ -16,6 +16,7 @@ const en = {
 	goToBookingPage: "Go to booking",
 	ourServices: "Our services",
 	aboutUs: "About us",
+	menu: "Menu",
 	homeTitle: "Home",
 } satisfies BaseTranslation;
 

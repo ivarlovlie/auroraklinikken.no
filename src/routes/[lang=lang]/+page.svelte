@@ -4,7 +4,6 @@
 	import Description from "./sections/description.svelte";
 	import Products from "./sections/products.svelte";
 	import FAQ from "./sections/faq.svelte";
-	import FAQV2 from "./sections/faq-v2.svelte";
 	import About from "./sections/about.svelte";
 	import LL from "$i18n/i18n-svelte";
 
@@ -22,33 +21,29 @@
 			<Description model={data.description} />
 		</div>
 	</section>
-	<section>
+	<section id="our-services">
 		<h2 class="mb-3">{$LL.ourServices()}</h2>
 		<Products model={data.products} />
 	</section>
-	<section>
+	<section id="about-us">
 		<h2 class="mb-3">{$LL.aboutUs()}</h2>
 		<About model={data.about} />
 	</section>
-	<section class="flex gap-5 flex-col lg:flex-row">
+	<section class="flex gap-5 flex-col lg:flex-row" id="contact-us">
 		<div>
 			<h2 class="mb-3">{$LL.contact.title()}</h2>
 			<Contact model={data.contact} />
 		</div>
-		<div class="w-full">
+		<div class="w-full" id="faq">
 			<h2 class="mb-3">{$LL.faq.title()}</h2>
-			<FAQV2 model={data.faqs} />
+			<FAQ model={data.faqs} />
 		</div>
-	</section>
-	<section>
-		<h2 class="mb-5">{$LL.faq.title()}</h2>
-		<FAQ model={data.faqs} />
 	</section>
 </main>
 
 <style>
 	main {
-		margin: 0 5vw 2vh 5vw;
+		margin: 22vh 5vw 2vh 5vw;
 		display: flex;
 		flex-direction: column;
 	}
@@ -64,6 +59,9 @@
 	@media (max-width: 768px) {
 		#hero {
 			grid-template-columns: unset;
+		}
+		main {
+			margin: 12vh 5vw 2vh 5vw;
 		}
 	}
 	#hero .hero {

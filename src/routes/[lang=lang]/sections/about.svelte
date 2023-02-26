@@ -19,7 +19,7 @@
         <PortableText value={model.description} />
     {/if}
     {#if model.imageUrl}
-        <img src="{model.imageUrl}" alt="{model.imageAlt ?? '...'}">
+        <img src="{model.imageUrl}" alt="{model.imageAlt ?? '...'}" loading="lazy">
     {/if}
 </div>
 
